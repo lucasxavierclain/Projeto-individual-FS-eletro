@@ -8,10 +8,10 @@ app.use(express.json());
 app.get('/Produtos',cors(), (req, res, next) => {
     const mysql = require('mysql');
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'fullstack'
+        host: 'us-cdbr-east-03.cleardb.com',
+        user: 'bd916d1927dd33',
+        password: '8c2e07bf',
+        database: 'heroku_df806353f1195a7'
     });
     connection.query("select * from produtos", (error, result) => {
         
@@ -23,10 +23,10 @@ app.get('/Produtos',cors(), (req, res, next) => {
 app.get('/Formulario',cors(), (req, res, next) => {
     const mysql = require('mysql');
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'fullstack'
+        host: 'us-cdbr-east-03.cleardb.com',
+        user: 'bd916d1927dd33',
+        password: '8c2e07bf',
+        database: 'heroku_df806353f1195a7'
     });
     connection.query("SELECT * FROM pedido JOIN produtos ON pedido.idprodutos = produtos.idprodutos;", (error, result) => {
         
@@ -40,10 +40,10 @@ app.get('/Formulario',cors(), (req, res, next) => {
 app.post('/Formulario', (req, res) => {
     const mysql = require('mysql');
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'fullstack'
+        host: 'us-cdbr-east-03.cleardb.com',
+        user: 'bd916d1927dd33',
+        password: '8c2e07bf',
+        database: 'heroku_df806353f1195a7'
     });
 
    
@@ -68,7 +68,8 @@ app.post('/Formulario', (req, res) => {
 
 });
 
-
-app.listen(3000, ()=>{
+const PORT= process.env.PORT || 3000
+app.listen(PORT, ()=>{
     console.log('Servidor ativo');
 })
+mysql://bd916d1927dd33:8c2e07bf@us-cdbr-east-03.cleardb.com/heroku_df806353f1195a7?reconnect=true
